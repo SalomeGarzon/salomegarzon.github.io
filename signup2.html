@@ -21,38 +21,42 @@
             <td> <input type="submit" value="Registrar" onclick="registerUser()"> </td>
         </tr>
     </table>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
-
+    <script>
         // Your web app's Firebase configuration
-        const firebaseConfig = {
-          // Add your Firebase config here
+        var firebaseConfig = {
+          apiKey: "AIzaSyCqqfqTwtnq0t01XaDei9bGF0oWBe7oxDI",
+          authDomain: "appweb-a3afb.firebaseapp.com",
+          projectId: "appweb-a3afb",
+          storageBucket: "appweb-a3afb.appspot.com",
+          messagingSenderId: "500884586632",
+          appId: "1:500884586632:web:d09e476ce13c9f7ee6df3d"
+
         };
-
+      
         // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth();
-
+        firebase.initializeApp(firebaseConfig);
+        var auth = firebase.auth();
+      
         function registerUser() {
-          const email = document.getElementById("emailInput").value;
-          const password = document.getElementById("passwordInput").value;
-
-          createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
+          var email = document.getElementById("emailInput").value;
+          var password = document.getElementById("passwordInput").value;
+      
+          firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then(function(userCredential) {
               // Signed in
-              const user = userCredential.user;
+              var user = userCredential.user;
               console.log("User registered:", user);
               // ...
             })
-            .catch((error) => {
-              const errorCode = error.code;
-              const errorMessage = error.message;
+            .catch(function(error) {
+              var errorCode = error.code;
+              var errorMessage = error.message;
               console.log(errorCode, errorMessage);
               // ..
             });
         }
     </script>
+    <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js"></script>
 </body>
 </html>
