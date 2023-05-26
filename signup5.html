@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
   <title>Signup Page</title>
   <style>
     body {
@@ -25,6 +26,7 @@
     }
     
     label {
+      
       display: block;
       font-weight: bold;
       margin-bottom: 5px;
@@ -51,26 +53,76 @@
     }
   </style>
 </head>
+
 <body>
+
   <div class="container">
-    <h2>Signup Form</h2>
-    <form action="signup.php" method="post">
+    <h2>Bienvenido a la página de registro de usuario</h2>
+
+    <form>
+
       <div>
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+        <input type="text" id="username" name="username" placeholder="Ingrese su usuario" required>
       </div>
+
       <div>
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" placeholder="Ingrese su email" required>
       </div>
+
       <div>
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
       </div>
+
       <div>
-        <input type="submit" value="Signup">
+        <input type="submit" value="Registrar" onclick="registerUser()">
       </div>
+      
     </form>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+    <script>
+      
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCqqfqTwtnq0t01XaDei9bGF0oWBe7oxDI",
+        authDomain: "appweb-a3afb.firebaseapp.com",
+        projectId: "appweb-a3afb",
+        storageBucket: "appweb-a3afb.appspot.com",
+        messagingSenderId: "500884586632",
+        appId: "1:500884586632:web:d09e476ce13c9f7ee6df3d"
+
+      };
+    
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      var auth = firebase.auth();
+
+      function registerUser() {
+          //var user = document.getElementById("username").value;
+          var email = document.getElementById("email").value;
+          var password = document.getElementById("password").value;
+      
+          firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then(function(userCredential) {
+              // Signed in
+              var user = userCredential.user;
+              console.log("User registered:", user);
+              // ...
+            })
+            .catch(function(error) {
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              console.log(errorCode, errorMessage);
+              // ..
+            });
+        }
+    </script>
+      
   </div>
 </body>
 </html>
