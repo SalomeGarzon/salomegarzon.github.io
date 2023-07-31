@@ -1,5 +1,6 @@
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -9,10 +10,16 @@ module.exports = {
   },
   mode: 'development',
   devServer: {
-    static: './dist', // Directorio para servir archivos estáticos
-    hot: true, // Habilitar el reemplazo en caliente (Hot Module Replacement)
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    hot: true,
+    open: true,
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
     new Dotenv({
       path: './.env',
     }),
