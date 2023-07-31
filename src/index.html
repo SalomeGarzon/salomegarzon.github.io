@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página de Registro</title>
+  <style>
+    /* Tus estilos CSS existentes aquí */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 400px;
+      margin: 100px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    label {
+      
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 80%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    
+    input[type="submit"] {
+      width: 90%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Tu contenido HTML existente aquí -->
+    <h2>Bienvenido a la página de registro de usuario</h2>
+
+    <form>
+      
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Ingrese su usuario" required>
+      </div>
+
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Ingrese su email" required>
+      </div>
+
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
+      </div>
+
+      <div>
+        <input type="submit" value="Registrar" onclick="registerUser()">
+      </div>
+      
+    </form>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  </div>
+  <script src="bundle.js"></script>
+</body>
+</html>
