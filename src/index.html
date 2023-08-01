@@ -3,7 +3,7 @@
 <head>
   <title>Página de Registro</title>
   <style>
-    /* Tus estilos CSS existentes aquí */
+
     body {
       font-family: Arial, sans-serif;
       background-color: #f2f2f2;
@@ -56,15 +56,10 @@
 
 <body>
   <div class="container">
-    <!-- Tu contenido HTML existente aquí -->
+
     <h2>Bienvenido a la página de registro de usuario</h2>
 
     <form>
-
-      <div>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Ingrese su usuario" required>
-      </div>
 
       <div>
         <label for="email">Email:</label>
@@ -77,15 +72,18 @@
       </div>
 
       <div>
-        <input type="submit" value="Registrar" onclick="registerUser()">
+        <input type="submit" id="registerBtn" value="Registrar" onclick="registerUser()">
       </div>
-      
+
     </form>
+
+   
 
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="./src/index.js"></script>
   </div>
   
-  <script src="./main.js"></script> 
+  <script src="./main.js"></script>
 </body>
 </html>

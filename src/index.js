@@ -1,3 +1,4 @@
+
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
@@ -11,12 +12,12 @@ const firebaseConfig = {
   appId: process.env.APP_ID,
 };
 
+
 // Inicializar Firebase
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
 function registerUser() {
-  //const username = document.getElementById('username').value;
   var email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
 

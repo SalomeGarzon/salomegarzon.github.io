@@ -23,5 +23,7 @@ module.exports = {
     new Dotenv({
       path: './.env',
     }),
+    
+    new Dotenv(),
   ],
 };

@@ -6,40 +6,6 @@
  * or disable the default devtool with "devtool: false".
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
-
-// main.js
-// Aquí debe estar presente la función registerUser
-
-// Your web app's Firebase configuration
-var firebaseConfig = {
-  apiKey: "tu-api-key",
-  authDomain: "tu-auth-domain",
-  projectId: "tu-project-id",
-  storageBucket: "tu-storage-bucket",
-  messagingSenderId: "tu-messaging-sender-id",
-  appId: "tu-app-id"
-};
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-var auth = firebase.auth();
-
-function registerUser() {
-  var email = document.getElementById("email").value;
-  var password = document.getElementById("password").value;
-
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(function(userCredential) {
-      var user = userCredential.user;
-      console.log("User registered:", user);
-    })
-    .catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorCode, errorMessage);
-    });
-}
-
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
